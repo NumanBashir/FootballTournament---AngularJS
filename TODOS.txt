@@ -1,0 +1,5 @@
+- Stylish homepage
+- Choose how many teams
+- List out number of teams
+- Able to insert information about teams
+    - Name

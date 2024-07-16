@@ -1,15 +1,22 @@
 body
     font-family Arial, sans-serif
 
-h2
-    color #333
+.container
+  display flex
+  flex-direction column
+  justify-content center
+  align-items center
+  
+h1, .number-teams
+  margin 10px 0
 
-button
-    background-color #007BFF
-    color white
-    border none
-    padding 10px
-    cursor pointer
-
-input
+.number-teams
+    display flex
+    flex-direction row
     margin-right 10px
+
+.number-teams h2
+  margin-right 10px 
+
+.number-teams input
+  margin-right 10px
