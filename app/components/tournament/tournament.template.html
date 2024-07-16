@@ -1,0 +1,18 @@
+<div>
+    <h2>Create Tournament</h2>
+    <input type="text" ng-model="$ctrl.newTeam" placeholder="Add team">
+    <button ng-click="$ctrl.addTeam($ctrl.newTeam)">Add Team</button>
+
+    <input type="text" ng-model="$ctrl.tournamentName" placeholder="Tournament Name">
+    <button ng-click="$ctrl.createTournament($ctrl.tournamentName)">Create Tournament</button>
+
+    <h2>Tournaments</h2>
+    <div ng-repeat="tournament in $ctrl.tournaments">
+        <h3>{{tournament.name}}</h3>
+        <div ng-repeat="team in tournament.teams">
+            <span>{{team.name}}: {{team.score}}</span>
+            <input type="number" ng-model="team.newScore">
+            <button ng-click="$ctrl.updateScore(tournament, team, team.newScore)">Update Score</button>
+        </div>
+    </div>
+</div>

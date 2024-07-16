@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "angular": "^1.8.2"
+  },
+  "scripts": {
+    "build-css": "stylus styles/main.styl -o styles/main.css"
+  }
+}
