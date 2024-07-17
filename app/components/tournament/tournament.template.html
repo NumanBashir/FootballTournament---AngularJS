@@ -2,9 +2,12 @@
     <h1>How many teams are in this tournament?</h1>
     <div class="number-teams">
         <h2>Number of teams:</h2>
-        <input type="number" name="teams" id="teams">
-        <button>Enter</button>
+        <input type="number" ng-model="$ctrl.numberOfTeams" class="input-box">
+        <button ng-click="$ctrl.generateTeams()">Enter</button>
     </div>
 
+    <ul>
+        <li ng-repeat="team in $ctrl.teams">{{ team.name }}</li>
+    </ul>
 
 </div>

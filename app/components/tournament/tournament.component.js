@@ -3,21 +3,14 @@ angular.module("footballTournamentApp").component("tournament", {
   controller: function (TournamentService) {
     var vm = this;
     vm.teams = [];
-    vm.tournaments = [];
+    vm.numberOfTeams = 0;
 
-    vm.addTeam = function (team) {
-      vm.teams.push(team);
-      vm.newTeam = "";
-    };
-
-    vm.createTournament = function (name) {
-      var tournament = TournamentService.createTournament(name, vm.teams);
-      vm.tournaments.push(tournament);
+    vm.generateTeams = function () {
       vm.teams = [];
-    };
-
-    vm.updateScore = function (tournament, team, score) {
-      TournamentService.updateScore(tournament, team, score);
+      for (var i = 1; i <= vm.numberOfTeams; i++) {
+        vm.teams.push({ id: i, name: "Team " + i });
+      }
+      vm.numberOfTeams = 0;
     };
   },
 });
