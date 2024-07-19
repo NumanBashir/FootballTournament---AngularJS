@@ -1,13 +1,26 @@
 <div class="container">
-    <h1>How many teams are in this tournament?</h1>
-    <div class="number-teams">
-        <h2>Number of teams:</h2>
-        <input type="number" ng-model="$ctrl.numberOfTeams" class="input-box">
-        <button ng-click="$ctrl.generateTeams()">Enter</button>
+    <h1>Create your own football tournament!</h1>
+    <form name="tournamentForm" novalidate>
+        <div class="number-teams">
+            <h2>How many teams?</h2>
+            <input type="number" ng-model="$ctrl.numberOfTeams" class="input-box" min="0">
+            <button ng-click="$ctrl.generateTeams()">Enter</button>
+        </div>
+    </form>
+
+    <ul ng-if="$ctrl.teams.length >0">
+        <li ng-repeat="team in $ctrl.teams track by $index">
+            <label for="team{{$index}}">Team {{$index + 1}}</label>
+            <input type="text" id="team{{$index}}" ng-model="" required>
+        </li>
+    </ul>
+
+    <div class="number-teams" ng-if="$ctrl.teams.length > 0">
+        <label for="homeAwayGames">Are there home and away games?</label>
+        <input type="checkbox" id="homeAwayGames" ng-model="$ctrl.homeAwayGames">
     </div>
 
-    <ul>
-        <li ng-repeat="team in $ctrl.teams">{{ team.name }}</li>
-    </ul>
+    <button type="button" ng-click="$ctrl.startTournament()"
+        ng-disabled="$ctrl.teams.length === 0 || !tournamentForm.$valid">Start tournament!</button>
 
 </div>
